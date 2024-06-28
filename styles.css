@@ -1,0 +1,88 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5; /* Reduced opacity */
+    filter: brightness(40%); /* Make the video a bit darker */
+}
+
+#play-button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background */
+    border: 2px solid white;
+    color: white;
+    border-radius: 15px; /* Curved corners */
+    backdrop-filter: blur(10px); /* Blur effect */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+#play-button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Change background on hover */
+    color: black;
+}
+
+#poem-container {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: white;
+    font-size: 24px;
+    z-index: 1;
+}
+
+.line {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.stanza {
+    margin-bottom: 20px; /* Added larger margin for stanza separation */
+}
+
+/* Media Queries for different screen sizes */
+@media (max-width: 768px) {
+    #play-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #poem-container {
+        font-size: 4vw; /* Larger font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #play-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    #poem-container {
+        font-size: 5vw; /* Even larger font size for very small screens */
+    }
+}
